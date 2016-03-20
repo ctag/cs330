@@ -5,6 +5,8 @@
  */
 package cartoguration.a.tron;
 
+import edu.uci.ics.jung.graph.DirectedGraph;
+import edu.uci.ics.jung.graph.DirectedSparseMultigraph;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +21,7 @@ import java.util.Random;
 public class StorySystem {
     private ArrayList<StoryBlock> AvailableBlocks;
     private ArrayList<StoryBlock> UsedBlocks;
-    public Graph<String, String> StoryMap = new SparseMultigraph<String, String>();
+    public DirectedGraph<String, String> StoryMap = new DirectedSparseMultigraph<String, String>();
     private String DNA = "";
 
     public StorySystem(ArrayList<StoryBlock> AvailableBlocks, ArrayList<StoryBlock> UsedBlocks) {

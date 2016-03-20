@@ -31,11 +31,11 @@ public class CartogurationATron {
         
         
         Layout<Integer, String> layout = new CircleLayout(game.StoryMap);
-        layout.setSize(new Dimension(300,300)); // sets the initial size of the space
+        layout.setSize(new Dimension(800,800)); // sets the initial size of the space
         // The BasicVisualizationServer<V,E> is parameterized by the edge types
         BasicVisualizationServer<Integer,String> vv =
         new BasicVisualizationServer<Integer,String>(layout);
-        vv.setPreferredSize(new Dimension(350,350)); //Sets the viewing area size
+        vv.setPreferredSize(new Dimension(900,900)); //Sets the viewing area size
 
         JFrame frame = new JFrame("Simple Graph View");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
