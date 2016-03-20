@@ -22,11 +22,14 @@ public class CartogurationATron {
      */
     public static void main(String[] args) {
         StorySystem game = StorySystem.makeRandomSetBlocks(50);
+        game.buildTestGraph();
         
         System.out.print(game.printAvailable());
         
+        System.out.print(game.StoryMap.toString());
         
-        /*
+        
+        
         Layout<Integer, String> layout = new CircleLayout(game.StoryMap);
         layout.setSize(new Dimension(300,300)); // sets the initial size of the space
         // The BasicVisualizationServer<V,E> is parameterized by the edge types
@@ -40,7 +43,7 @@ public class CartogurationATron {
         frame.pack();
         frame.setVisible(true); 
         // TODO code application logic here
-                */
+                
     }
     
 }

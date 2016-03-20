@@ -13,12 +13,14 @@ import java.util.ArrayList;
  */
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
+import static java.lang.Math.abs;
 import java.util.Random;
 
 public class StorySystem {
     private ArrayList<StoryBlock> AvailableBlocks;
     private ArrayList<StoryBlock> UsedBlocks;
-    public Graph<Integer, String> StoryMap = new SparseMultigraph<Integer, String>();
+    public Graph<String, String> StoryMap = new SparseMultigraph<String, String>();
+    private String DNA = "";
 
     public StorySystem(ArrayList<StoryBlock> AvailableBlocks, ArrayList<StoryBlock> UsedBlocks) {
         this.AvailableBlocks = AvailableBlocks;
@@ -81,6 +83,46 @@ public class StorySystem {
             returnString += temp.printFunctionMaps();
         }
         return returnString; 
+    }
+    public void buildTestGraph()
+    {
+        StoryBlock currentNode;
+        Random rand = new Random();
+        int currentNodeAddress = abs(rand.nextInt()%(AvailableBlocks.size()+1));
+
+        currentNode = AvailableBlocks.remove(currentNodeAddress);
+        StoryMap.addVertex(currentNode.getBlockID()); 
+        DNA += currentNode.printOutput();
+        DNA += currentNode.printInput();
+        
+        while(true)
+        {
+            
+            
+            ArrayList<StoryBlock> possible = new ArrayList<>();
+            //Grab next node
+            for(StoryBlock block : AvailableBlocks)
+            {
+                if(block.blockConnect(DNA))
+                    possible.add(block);
+
+            }
+            if(possible.isEmpty())
+                break;
+            int nextNodeAdress = abs(rand.nextInt()) % (possible.size());
+            StoryBlock nextNode = possible.remove(nextNodeAdress);
+            AvailableBlocks.remove(nextNode);
+            
+            StoryMap.addVertex(nextNode.getBlockID()); 
+            DNA += nextNode.printOutput();
+            StoryMap.addEdge(DNA, currentNode.getBlockID(), nextNode.getBlockID());
+            
+            currentNode = nextNode;
+        }
+        StoryMap.addVertex(currentNode.getBlockID()); 
+        DNA += currentNode.printOutput();
+        
+        
     }
     
 }

@@ -32,6 +32,44 @@ public class StoryBlock {
     {
         return BlockID + ": " + InputEvents.toString() + " -> " + OutputEvents.toString() + "\n";
     }
+    public String printInput()
+    {
+        String input=""; 
+        for(String ele : InputEvents)
+        {
+            input += ele; 
+        }
+        
+        return input;
+        
+    }
+    public String printOutput()
+    {
+        String output="";
+        for(String ele : OutputEvents)
+        {
+            output += ele; 
+        }
+        return output; 
+        
+    }
+     public boolean blockConnect(String dna)
+    {
+        for(String check : InputEvents)
+        {
+            if(!dna.contains(check))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean equals(StoryBlock obj) {
+        if (obj == null) return false;
+       return (BlockID.equals(obj.getBlockID()));
+    }
+    
+    
     
 
     
