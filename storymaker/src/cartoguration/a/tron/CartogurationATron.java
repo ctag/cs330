@@ -5,8 +5,11 @@
  */
 package cartoguration.a.tron;
 
+import edu.uci.ics.jung.algorithms.layout.BalloonLayout;
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
+import edu.uci.ics.jung.algorithms.layout.DAGLayout;
 import edu.uci.ics.jung.algorithms.layout.Layout;
+import edu.uci.ics.jung.algorithms.layout.SpringLayout2;
 import edu.uci.ics.jung.visualization.BasicVisualizationServer;
 import java.awt.Dimension;
 import javax.swing.JFrame;
@@ -30,12 +33,12 @@ public class CartogurationATron {
         
         
         
-        Layout<Integer, String> layout = new CircleLayout(game.StoryMap);
+        Layout<Integer, String> layout = new DAGLayout(game.StoryMap);
         layout.setSize(new Dimension(800,800)); // sets the initial size of the space
         // The BasicVisualizationServer<V,E> is parameterized by the edge types
-        BasicVisualizationServer<Integer,String> vv =
-        new BasicVisualizationServer<Integer,String>(layout);
-        vv.setPreferredSize(new Dimension(900,900)); //Sets the viewing area size
+        BasicVisualizationServer<Integer,String> vv = new BasicVisualizationServer<Integer,String>(layout);
+        vv.setPreferredSize(new Dimension(1500,1000)); //Sets the viewing area size
+        
 
         JFrame frame = new JFrame("Simple Graph View");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
