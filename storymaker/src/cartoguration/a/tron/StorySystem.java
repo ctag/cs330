@@ -122,7 +122,7 @@ public class StorySystem {
     }
     public ArrayList<StoryBlock> grabNewPaths(int num_options)
     {
-        ArrayList<StoryBlock> possible = new ArrayList<StoryBlock>();
+        ArrayList<StoryBlock> possible = new ArrayList<>();
         //Grab next node
         for(StoryBlock block : AvailableBlocks)
         {
