@@ -47,7 +47,7 @@ public class StorySystem {
             String prereq = "";
             //rand.nextInt((max - min) + 1) + min;
             int r_pre = rand.nextInt((3 - 1) + 1) + 1;
-            for(int i = 0; i < r_pre; i++)
+            for(int i = 0; i < r_pre; i++)//make the pre_reqs
             {
                 String r_Char = chars.charAt(rand.nextInt(chars.length())) + "";
                 prereq += r_Char;
@@ -57,7 +57,7 @@ public class StorySystem {
             String post = "";
             //rand.nextInt((max - min) + 1) + min;
             int r_post = rand.nextInt((2 - 1) + 1) + 1;
-            for(int i = 0; i < r_post; i++)
+            for(int i = 0; i < r_post; i++) //make the post_reqs
             {
                 String r_Char = chars.charAt(rand.nextInt(chars.length())) + "";
                 if(!post.contains(r_Char))
@@ -101,16 +101,10 @@ public class StorySystem {
         {
             
             
-            ArrayList<StoryBlock> possible = new ArrayList<>();
-            //Grab next node
-            for(StoryBlock block : AvailableBlocks)
-            {
-                if(block.blockConnect(DNA))
-                    possible.add(block);
-
-            }
+            ArrayList<StoryBlock> possible = grabNewPaths(3);
             if(possible.isEmpty())
                 break;
+            // this random simulates the user selecting one of the blocks
             int nextNodeAdress = abs(rand.nextInt()) % (possible.size());
             StoryBlock nextNode = possible.remove(nextNodeAdress);
             AvailableBlocks.remove(nextNode);
@@ -125,6 +119,19 @@ public class StorySystem {
         DNA += currentNode.printOutput();
         
         
+    }
+    public ArrayList<StoryBlock> grabNewPaths(int num_options)
+    {
+        ArrayList<StoryBlock> possible = new ArrayList<StoryBlock>();
+        //Grab next node
+        for(StoryBlock block : AvailableBlocks)
+        {
+            if(block.blockConnect(DNA))
+                possible.add(block);
+            if(possible.size() >= num_options-1)
+                break;
+        }
+        return possible;
     }
     
 }
