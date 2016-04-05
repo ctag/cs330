@@ -24,6 +24,9 @@ public class CartogurationATron {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        //This makes the DB
+        //StateDB.createDB();
         StorySystem game = StorySystem.makeRandomSetBlocks(50);
         game.buildTestGraph();
         
