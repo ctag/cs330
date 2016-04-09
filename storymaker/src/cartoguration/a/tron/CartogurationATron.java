@@ -26,7 +26,7 @@ public class CartogurationATron {
     public static void main(String[] args) {
         
         //This makes the DB
-        //StateDB.createDB();
+        StateDB.createDB();
         StorySystem game = StorySystem.makeRandomSetBlocks(50);
         game.buildTestGraph();
         

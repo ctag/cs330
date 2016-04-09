@@ -40,6 +40,7 @@ public class StateDB {
         createTables(StoryChainModifiers);
         
     }
+    //public static void 
     private static void createTables(String sql)
     {
         Connection c = null;
