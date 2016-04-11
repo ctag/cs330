@@ -27,6 +27,9 @@ public class CartogurationATron {
         
         //This makes the DB
         StateDB.createDB();
+        StateDB.instert_Element("AA", "I am a test", "I-am-not-real");
+        StateDB.instert_Modifier("Fame", ".5", "I-am-not-real", "This is a Desc");
+        
         StorySystem game = StorySystem.makeRandomSetBlocks(50);
         game.buildTestGraph();
         
@@ -42,14 +45,14 @@ public class CartogurationATron {
         BasicVisualizationServer<Integer,String> vv = new BasicVisualizationServer<Integer,String>(layout);
         vv.setPreferredSize(new Dimension(1500,1000)); //Sets the viewing area size
         
-
+        /*
         JFrame frame = new JFrame("Simple Graph View");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(vv);
         frame.pack();
         frame.setVisible(true); 
         // TODO code application logic here
-                
+        */  
     }
     
 }

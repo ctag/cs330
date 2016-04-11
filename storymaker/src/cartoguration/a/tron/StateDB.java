@@ -13,17 +13,17 @@ import java.sql.*;
 
 public class StateDB {
     //This will be used to interact with the DB
-    public static String StoryChainElements = "CREATE TABLE `Elements_SS` (\n" +
+    public static String StoryChainElements = "CREATE TABLE IF NOT EXISTS `Maping_SS` (\n" +
                                             "	`Genotype`	TEXT NOT NULL UNIQUE," +
-                                            "	`Field2`	TEXT NOT NULL," +
+                                            "	`Phenotype`	TEXT NOT NULL," +
                                             "	`StoryBlockID`	TEXT NOT NULL," +
                                             "	PRIMARY KEY(Genotype)\n" +
                                             ");"; 
-    public static String StoryChainModifiers = "CREATE TABLE `Modifiers_SS` (\n" +
+    public static String StoryChainModifiers = "CREATE TABLE IF NOT EXISTS `Modifiers_SS` (\n" +
                                                " `Trait`	TEXT NOT NULL UNIQUE,\n" +
                                                " `Value`	TEXT NOT NULL,\n" +
-                                               " StoryBlockID`	TEXT NOT NULL,\n" +
-                                               " Description`	TEXT NOT NULL\n" +
+                                               " `StoryBlockID`	TEXT NOT NULL,\n" +
+                                               " `Description`	TEXT NOT NULL\n" +
                                                ");"; 
     public static void createDB()
     {
@@ -40,7 +40,60 @@ public class StateDB {
         createTables(StoryChainModifiers);
         
     }
-    //public static void 
+    public static String instert_Element(String geno, String pheno, String blockID) 
+    {
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:StroryData.db");
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully");
+
+            stmt = c.createStatement();
+            String sql = "INSERT INTO Maping_SS (Genotype, Phenotype, StoryBlockID) " +
+                         "VALUES ('" + geno + "','" + pheno + "','" + blockID + "');"; 
+            stmt.executeUpdate(sql);
+            
+
+            stmt.close();
+            c.commit();
+            c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          return (e.getClass().getName() + ": " + e.getMessage());
+        }
+        System.out.println("Records created successfully");
+        return ("Records created successfully");
+
+    }
+    
+    public static String instert_Modifier(String trait, String value, String blockID, String desc)
+    {
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:StroryData.db");
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully");
+
+            stmt = c.createStatement();
+            String sql = "INSERT INTO Modifiers_SS (Trait, Value, StoryBlockID, Description) " +
+                         "VALUES ('" + trait + "','" + value + "','" + blockID+ "','" + desc + "');"; 
+            stmt.executeUpdate(sql);
+            
+
+            stmt.close();
+            c.commit();
+            c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          return (e.getClass().getName() + ": " + e.getMessage());
+        }
+        System.out.println("Records created successfully");
+        return ("Records created successfully");
+    }
     private static void createTables(String sql)
     {
         Connection c = null;
