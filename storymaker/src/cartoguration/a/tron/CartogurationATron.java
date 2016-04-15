@@ -26,11 +26,11 @@ public class CartogurationATron {
     public static void main(String[] args) {
         
         //This makes the DB
-        StateDB.createDB();
-        StateDB.instert_Element("AA", "I am a test", "I-am-not-real");
-        StateDB.instert_Modifier("Fame", ".5", "I-am-not-real", "This is a Desc");
+        //StateDB.createDB();
+        //StateDB.instert_Element("AA", "I am a test", "I-am-not-real");
+        //StateDB.instert_Modifier("Fame", ".5", "I-am-not-real", "This is a Desc");
         
-        StorySystem game = StorySystem.makeRandomSetBlocks(50);
+        StorySystem game = StorySystem.makeTestHero();//.makeRandomSetBlocks(50);
         game.buildTestGraph();
         
         System.out.print(game.printAvailable());

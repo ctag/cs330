@@ -21,10 +21,8 @@ public class StoryBlock {
         this.OutputEvents = OutputEvents;
         this.BlockID = makeID();
     }
-    public StoryBlock(String InputEvents,String InputEventsModifiers, String OutputEvents) {
+    public StoryBlock(String InputEvents,String OutputEvents, String InputEventsModifiers) {
         this.InputEvents = new ArrayList<String>(Arrays.asList(InputEvents.split(",")));
-        if(InputEventsModifiers != null)
-            this.InputEventsModifiers = new ArrayList<String>(Arrays.asList(InputEventsModifiers.split(","))); 
         this.OutputEvents = new ArrayList<String>(Arrays.asList(OutputEvents.split(",")));
         this.BlockID = makeID();
     }

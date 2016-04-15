@@ -5,6 +5,8 @@
  */
 package cartoguration.a.tron;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Luc
@@ -35,7 +37,33 @@ urse
     12.       RETURN WITH THE ELIXIR.  The hero returns home or continues the journey, bearing some element of the treasure that has the power to transform the world as the hero has been transformed.
 
     */
-    
+    public static ArrayList<StoryBlock> createTestJourney(int blocks)
+    {
+        
+        ArrayList<StoryBlock> events = new ArrayList<StoryBlock>();
+        //if(blocks > 12)
+        blocks = 12;
+        ArrayList<String> genes = StateDB.pullTopGenoTypes(blocks, true);
+        
+        for(int x = 0; x<blocks; x++)
+        {
+            StoryBlock temp;
+            String blockID = "[" + x +"]";
+            String id = genes.get(x);
+            if(x==0)
+                temp = new StoryBlock("", genes.get(x)  , StateDB.getPheno(id.substring(0,4), blockID));
+            else if(x==11)
+                temp = new StoryBlock(genes.get(x-1), genes.get(x)  , StateDB.getPheno(id.substring(0,4), blockID));
+            else temp = new StoryBlock(genes.get(x-1), genes.get(x) , StateDB.getPheno(id.substring(0,4), blockID));
+            
+            events.add(temp);
+            
+        }
+        return events;
+        
+                  
+        
+    }
     
     
 }

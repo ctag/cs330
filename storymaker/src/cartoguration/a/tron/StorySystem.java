@@ -36,6 +36,12 @@ public class StorySystem {
         this.AvailableBlocks = new ArrayList<StoryBlock>();
         this.UsedBlocks = new ArrayList<StoryBlock>();
     }
+    public static StorySystem makeTestHero()
+    {
+        StorySystem newSS = new StorySystem();
+        newSS.AvailableBlocks = HeroJourney.createTestJourney(12);
+        return newSS;
+    }
     public static StorySystem makeRandomSetBlocks(int numBlocks)
     {
         StorySystem newSS = new StorySystem();
@@ -90,7 +96,7 @@ public class StorySystem {
     {
         StoryBlock currentNode;
         Random rand = new Random();
-        int currentNodeAddress = abs(rand.nextInt()%(AvailableBlocks.size()+1));
+        int currentNodeAddress = 0; //abs(rand.nextInt()%(AvailableBlocks.size()+1));
 
         currentNode = AvailableBlocks.remove(currentNodeAddress);
         StoryMap.addVertex(currentNode.getBlockID()); 
