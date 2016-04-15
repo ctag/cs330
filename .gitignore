@@ -10,13 +10,9 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-<<<<<<< HEAD
-/storymaker/build/
-/storymaker/nbproject/private/
-=======
 
 # Netbeans stuff
-*/nbproject/private/
+nbproject/private/
 build/
 nbbuild/
 dist/
@@ -27,5 +23,3 @@ build-impl.xml
 genfiles.properties
 private.properties
 project.properties
-
->>>>>>> origin/master
