@@ -23,3 +23,5 @@ build-impl.xml
 genfiles.properties
 private.properties
 project.properties
+
+storymaker/nbproject/private/private.xml
