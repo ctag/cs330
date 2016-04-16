@@ -1,9 +1,16 @@
 package cartoguration.a.tron;
 
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
+import org.json.*;
 
 /*
  *
@@ -15,11 +22,33 @@ import java.util.UUID;
  */
 public class StoryBlock {
 
-    public StoryBlock(ArrayList<String> InputEvents, ArrayList<String> InputEventsModifiers, ArrayList<String> OutputEvents) {
-        this.InputEvents = InputEvents;
+    // Each storyblock has a list of requirements to enter.
+    public List<String> required_tokens = new ArrayList<String>();
+    public String tagID;
+    
+    static String readFile(String path, Charset encoding) throws IOException 
+    {
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
+        return new String(encoded, encoding);
+    }
+    
+    // Read JSON into storyblock
+    JSONObject block;
+    
+    //ArrayList<String> InputEvents, ArrayList<String> InputEventsModifiers, ArrayList<String> OutputEvents
+    public StoryBlock(String id) throws IOException {
+        /*this.InputEvents = InputEvents;
         this.InputEventsModifiers = InputEventsModifiers;
         this.OutputEvents = OutputEvents;
-        this.BlockID = makeID();
+        this.BlockID = makeID();*/
+        //My Code:
+        this.tagID = id;
+        this.block = new JSONObject(readFile("C:/Users/Jared/Desktop/testJSON.txt",StandardCharsets.UTF_8));
+        JSONArray blockList = block.getJSONArray("blocks");
+        for(int i = 0; i < blockList.length(); i++)
+        {
+            System.out.println(blockList.getJSONObject(i).getString("tag"));
+        }
     }
     public StoryBlock(String InputEvents,String OutputEvents, String InputEventsModifiers) {
         this.InputEvents = new ArrayList<String>(Arrays.asList(InputEvents.split(",")));
