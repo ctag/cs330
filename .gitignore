@@ -27,3 +27,5 @@ project.properties
 storymaker/nbproject/private/private.xml
 
 storymaker/nbproject/project.properties
+
+*.properties

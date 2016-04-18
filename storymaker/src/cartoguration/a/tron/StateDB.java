@@ -92,7 +92,7 @@ public class StateDB {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            String sql = "SELECT * FROM Maping_SS LIMIT " + Number; 
+            String sql = "SELECT * FROM Maping_SS LIMIT " + Number + ";"; 
             ResultSet rs = stmt.executeQuery(sql);
             while ( rs.next() ) 
             {
@@ -101,7 +101,7 @@ public class StateDB {
                 result += "" + rs.getString("StoryBlockID");
                 if(!onlyGeno)
                 {
-                    result += "!@#$%" + rs.getString("PhenoType");
+                    result += "!@#$%" + rs.getString("Phenotype");
                     
                 }
                 results.add(result);
@@ -112,7 +112,7 @@ public class StateDB {
             c.close();
             return results;
         } catch ( Exception e ) {
-          System.err.println( e.getClass().getName() + "TopGeno: " + e.getMessage() );
+          System.err.println( e.getClass().getName() + " TopGeno: " + e.getMessage() );
           return results;
         }
     }

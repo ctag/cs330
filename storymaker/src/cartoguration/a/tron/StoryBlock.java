@@ -43,7 +43,7 @@ public class StoryBlock {
         this.BlockID = makeID();*/
         //My Code:
         this.tagID = id;
-        this.block = new JSONObject(readFile("C:/Users/Jared/Desktop/testJSON.txt",StandardCharsets.UTF_8));
+        this.block = new JSONObject(readFile("src/testJSON.txt",StandardCharsets.UTF_8));
         JSONArray blockList = block.getJSONArray("blocks");
         for(int i = 0; i < blockList.length(); i++)
         {
