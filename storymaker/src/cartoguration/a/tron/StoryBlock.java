@@ -76,7 +76,7 @@ public class StoryBlock {
     JSONObject block;
     
     //ArrayList<String> InputEvents, ArrayList<String> InputEventsModifiers, ArrayList<String> OutputEvents
-    public StoryBlock(String id) throws IOException {
+    public StoryBlock(String InputEvents,String OutputEvents, String InputEventsModifiers, String id) throws IOException {
         /*this.InputEvents = InputEvents;
         this.InputEventsModifiers = InputEventsModifiers;
         this.OutputEvents = OutputEvents;
@@ -90,14 +90,13 @@ public class StoryBlock {
             // This will output all blocks in JSON file.
             //System.out.println(blockList.getJSONObject(i).getString("tag"));
         }
+        this.InputEvents = new ArrayList<String>(Arrays.asList(getInputs().split(",")));
+        this.OutputEvents = new ArrayList<String>(Arrays.asList(getOutputs().split(",")));
+        this.BlockID = makeID();
         // Add storyblock to list of blocks
         listOfBlocks.add(this);
     }
-    public StoryBlock(String InputEvents,String OutputEvents, String InputEventsModifiers) {
-        this.InputEvents = new ArrayList<String>(Arrays.asList(InputEvents.split(",")));
-        this.OutputEvents = new ArrayList<String>(Arrays.asList(OutputEvents.split(",")));
-        this.BlockID = makeID();
-    }
+
     public String printFunctionMaps()
     {
         return BlockID + ": " + InputEvents.toString() + " -> " + OutputEvents.toString() + "\n";
