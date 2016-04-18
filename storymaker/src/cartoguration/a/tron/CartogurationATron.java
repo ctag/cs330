@@ -34,6 +34,7 @@ public class CartogurationATron {
         //StateDB.instert_Modifier("Fame", ".5", "I-am-not-real", "This is a Desc");
         List<StoryBlock> list_of_blocks = new ArrayList<StoryBlock>();
         StoryBlock g = new StoryBlock("[1]");
+        System.out.println(g.getOutputs());
         
         StorySystem game = StorySystem.makeTestHero();//.makeRandomSetBlocks(50);
         game.buildTestGraph();

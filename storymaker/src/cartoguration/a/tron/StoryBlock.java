@@ -25,12 +25,52 @@ public class StoryBlock {
     // Each storyblock has a list of requirements to enter.
     public List<String> required_tokens = new ArrayList<String>();
     public String tagID;
-    
+    public static List<StoryBlock> listOfBlocks = new ArrayList<StoryBlock>();
     static String readFile(String path, Charset encoding) throws IOException 
     {
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return new String(encoded, encoding);
     }
+    
+    // Function to return list of StoryBlocks as JSONArray
+    public static JSONArray getArray() throws IOException
+    {
+        return new JSONObject(readFile("src/testJSON.txt",StandardCharsets.UTF_8)).getJSONArray("blocks");
+    }
+    // Function to return list as arrayList
+    public static List<StoryBlock> getBlocks()
+    {
+        return listOfBlocks;
+    }
+    
+    // Function to return the Inputs of the block
+    public String getInputs() throws IOException
+    {
+        JSONArray temp = new JSONObject(readFile("src/testJSON.txt",StandardCharsets.UTF_8)).getJSONArray("blocks");
+        for(int i = 0; i < temp.length(); i++)
+        {
+            if(temp.getJSONObject(i).getString(tagID).length() > 0)
+            {
+                return temp.getJSONObject(i).getString("inputs");
+            }
+        }
+        return "No valid block found.";
+    }
+    
+     // Function to return the Inputs of the block
+    public String getOutputs() throws IOException
+    {
+        JSONArray temp = new JSONObject(readFile("src/testJSON.txt",StandardCharsets.UTF_8)).getJSONArray("blocks");
+        for(int i = 0; i < temp.length(); i++)
+        {
+            if(temp.getJSONObject(i).getString("tag").equals(tagID))
+            {
+                return temp.getJSONObject(i).getString("outputs");
+            }
+        }
+        return "No valid block found.";
+    }
+    
     
     // Read JSON into storyblock
     JSONObject block;
@@ -47,8 +87,11 @@ public class StoryBlock {
         JSONArray blockList = block.getJSONArray("blocks");
         for(int i = 0; i < blockList.length(); i++)
         {
-            System.out.println(blockList.getJSONObject(i).getString("tag"));
+            // This will output all blocks in JSON file.
+            //System.out.println(blockList.getJSONObject(i).getString("tag"));
         }
+        // Add storyblock to list of blocks
+        listOfBlocks.add(this);
     }
     public StoryBlock(String InputEvents,String OutputEvents, String InputEventsModifiers) {
         this.InputEvents = new ArrayList<String>(Arrays.asList(InputEvents.split(",")));
