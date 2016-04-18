@@ -2,12 +2,63 @@
 	"blocks":[
 	{
 		"tag" : "[1]",
-		"inputs": "CA"
-		
+		"inputs": "",
+		"outputs": "(OW)"
 	},
 	{
 		"tag" : "[2]",
-		"inputs": "OW"
+		"inputs": "(OW)",
+		"outputs": "(CA)"
+	},
+	{
+		"tag" : "[3]",
+		"inputs": "(CA)",
+		"outputs": ""
+	},
+	{
+		"tag" : "[4]",
+		"inputs": "(MM)",
+		"outputs": ""
+	},
+	{
+		"tag" : "[5]",
+		"inputs": "(MM)",
+		"outputs": "(CT)"
+	},
+	{
+		"tag" : "[6]",
+		"inputs": "(CT)",
+		"outputs": "(AP)"
+	},
+	{
+		"tag" : "[7]",
+		"inputs": "(AP)",
+		"outputs": "(TO)"
+	},
+	{
+		"tag" : "[8]",
+		"inputs": "(TO)",
+		"outputs": "(TR)"
+	},
+	{
+		"tag" : "[9]",
+		"inputs": "(TR)",
+		"outputs": "(RB)"
+	},
+	{
+		"tag" : "[10]",
+		"inputs": "(RB)",
+		"outputs": "(TRE)"
+	},
+	{
+		"tag" : "[11]",
+		"inputs": "(TRE)",
+		"outputs": "(RWE)"
+	},
+	{
+		"tag" : "[12]",
+		"inputs": "(TAE)",
+		"outputs": ""
 	}
 	]
 }
