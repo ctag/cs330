@@ -44,7 +44,7 @@ urse
         //if(blocks > 12)
         blocks = 12;
         ArrayList<String> genes = StateDB.pullTopGenoTypes(blocks, true);
-        
+        /*
         for(int x = 0; x<blocks; x++)
         {
             StoryBlock temp;
@@ -58,8 +58,8 @@ urse
             
             events.add(temp);
             
-        }
-        return events;
+        }*/
+        return (ArrayList<StoryBlock>) StoryBlock.getBlocks();//events;
         
                   
         

@@ -49,9 +49,10 @@ public class StoryBlock {
         JSONArray temp = new JSONObject(readFile("src/testJSON.txt",StandardCharsets.UTF_8)).getJSONArray("blocks");
         for(int i = 0; i < temp.length(); i++)
         {
-            if(temp.getJSONObject(i).getString(tagID).length() > 0)
+            if(temp.getJSONObject(i).getString("tag").equals(tagID) )
             {
-                return temp.getJSONObject(i).getString("inputs");
+                String str = temp.getJSONObject(i).getString("inputs");
+                return str;
             }
         }
         return "No valid block found.";
@@ -91,6 +92,27 @@ public class StoryBlock {
             //System.out.println(blockList.getJSONObject(i).getString("tag"));
         }
         this.InputEvents = new ArrayList<String>(Arrays.asList(getInputs().split(",")));
+        this.OutputEvents = new ArrayList<String>(Arrays.asList(getOutputs().split(",")));
+        this.BlockID = makeID();
+        // Add storyblock to list of blocks
+        listOfBlocks.add(this);
+    }
+    public StoryBlock(String id) throws IOException {
+        /*this.InputEvents = InputEvents;
+        this.InputEventsModifiers = InputEventsModifiers;
+        this.OutputEvents = OutputEvents;
+        this.BlockID = makeID();*/
+        //My Code:
+        this.tagID = id;
+        this.block = new JSONObject(readFile("src/testJSON.txt",StandardCharsets.UTF_8));
+        JSONArray blockList = block.getJSONArray("blocks");
+        for(int i = 0; i < blockList.length(); i++)
+        {
+            // This will output all blocks in JSON file.
+            //System.out.println(blockList.getJSONObject(i).getString("tag"));
+        }
+        String inputs = getInputs();
+        this.InputEvents = new ArrayList<String>(Arrays.asList(inputs.split(",")));
         this.OutputEvents = new ArrayList<String>(Arrays.asList(getOutputs().split(",")));
         this.BlockID = makeID();
         // Add storyblock to list of blocks

@@ -13,12 +13,12 @@
 	{
 		"tag" : "[3]",
 		"inputs": "(CA)",
-		"outputs": ""
+		"outputs": "(RC)"
 	},
 	{
 		"tag" : "[4]",
-		"inputs": "(MM)",
-		"outputs": ""
+		"inputs": "(RC)",
+		"outputs": "(MM)"
 	},
 	{
 		"tag" : "[5]",

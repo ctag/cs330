@@ -15,6 +15,7 @@ import java.util.ArrayList;
  */
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
+import java.io.IOException;
 import static java.lang.Math.abs;
 import java.util.Random;
 
@@ -42,7 +43,7 @@ public class StorySystem {
         newSS.AvailableBlocks = HeroJourney.createTestJourney(12);
         return newSS;
     }
-    public static StorySystem makeRandomSetBlocks(int numBlocks)
+    public static StorySystem makeRandomSetBlocks(int numBlocks) throws IOException
     {
         StorySystem newSS = new StorySystem();
         Random rand = new Random();
@@ -77,7 +78,7 @@ public class StorySystem {
                 else
                     i--;
             }
-            StoryBlock newBlock = new StoryBlock(prereq, null, post);
+            StoryBlock newBlock = new StoryBlock(prereq, null, post,"");
             newSS.AvailableBlocks.add(newBlock);
         }
         return newSS;
