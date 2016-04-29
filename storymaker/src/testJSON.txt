@@ -52,7 +52,11 @@
 		"tag" : "[9]",
 		"inputs": "(MM)",
 		"outputs": "(CT)",
+<<<<<<< Updated upstream
 		"dialog": "Your mentor’s training helps a lot. He’s kinda like Mr. Miyagi."
+=======
+		"dialog": "Your mentorâ€™s training helps a lot. Heâ€™s kinda like Mr. Miyagi."
+>>>>>>> Stashed changes
 	},
 	{
 		"tag" : "[10]",
@@ -64,7 +68,11 @@
 		"tag" : "[11]",
 		"inputs": "(MM)",
 		"outputs": "(CT)",
+<<<<<<< Updated upstream
 		"dialog": " Your mentor’s training helps a lot. He’s kinda like Mr. Miyagi."
+=======
+		"dialog": " Your mentorâ€™s training helps a lot. Heâ€™s kinda like Mr. Miyagi."
+>>>>>>> Stashed changes
 	},
 	{
 		"tag" : "[12]",
@@ -124,7 +132,11 @@
 		"tag" : "[21]",
 		"inputs": "(AP)",
 		"outputs": "(TO)",
+<<<<<<< Updated upstream
 		"dialog": "When you arrive you’re greeted by a large fleet of guardsmen. <Insert more story>"
+=======
+		"dialog": "When you arrive youâ€™re greeted by a large fleet of guardsmen. <Insert more story>"
+>>>>>>> Stashed changes
 	},
 	{
 		"tag" : "[22]",
@@ -148,7 +160,11 @@
 		"tag" : "[25]",
 		"inputs": "(TO)",
 		"outputs": "(TR)",
+<<<<<<< Updated upstream
 		"dialog": "Though fame and fortune cannot undo what has been, it definitely doesn’t hurt."
+=======
+		"dialog": "Though fame and fortune cannot undo what has been, it definitely doesnâ€™t hurt."
+>>>>>>> Stashed changes
 	},
 	{
 		"tag" : "[26]",
@@ -160,7 +176,11 @@
 		"tag" : "[27]",
 		"inputs": "(TR)",
 		"outputs": "(RB)",
+<<<<<<< Updated upstream
 		"dialog": "Traveling home won’t be easy, but life never is."
+=======
+		"dialog": "Traveling home wonâ€™t be easy, but life never is."
+>>>>>>> Stashed changes
 	},
 	{
 		"tag" : "[28]",
@@ -172,7 +192,11 @@
 		"tag" : "[30]",
 		"inputs": "(RB)",
 		"outputs": "(TRE)",
+<<<<<<< Updated upstream
 		"dialog": "You thought you were dead but your weren’t. Surprise!"
+=======
+		"dialog": "You thought you were dead but your werenâ€™t. Surprise!"
+>>>>>>> Stashed changes
 	},
 	{
 		"tag" : "[31]",

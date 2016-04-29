@@ -42,7 +42,7 @@ urse
         
         ArrayList<StoryBlock> events = new ArrayList<StoryBlock>();
         //if(blocks > 12)
-        blocks = 12;
+        blocks = 100;
         ArrayList<String> genes = StateDB.pullTopGenoTypes(blocks, true);
         /*
         for(int x = 0; x<blocks; x++)

@@ -18,6 +18,8 @@ import edu.uci.ics.jung.graph.SparseMultigraph;
 import java.io.IOException;
 import static java.lang.Math.abs;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class StorySystem {
     private ArrayList<StoryBlock> AvailableBlocks;
@@ -96,34 +98,55 @@ public class StorySystem {
     public void buildTestGraph()
     {
         StoryBlock currentNode;
-        Random rand = new Random();
+        Random rand = new Random(System.currentTimeMillis());
         int currentNodeAddress = 0; //abs(rand.nextInt()%(AvailableBlocks.size()+1));
-
+        ArrayList<StoryBlock> possibles = grabNewPaths2(10);
+        // this random simulates the user selecting one of the blocks
+        currentNodeAddress = abs(rand.nextInt()) % (possibles.size());
         currentNode = AvailableBlocks.remove(currentNodeAddress);
         StoryMap.addVertex(currentNode.getBlockID()); 
         DNA += currentNode.printOutput();
         DNA += currentNode.printInput();
+       
         
         while(true)
         {
             
             
-            ArrayList<StoryBlock> possible = grabNewPaths(3);
+            ArrayList<StoryBlock> possible = grabNewPaths(10);
             if(possible.isEmpty())
                 break;
             // this random simulates the user selecting one of the blocks
             int nextNodeAdress = abs(rand.nextInt()) % (possible.size());
             StoryBlock nextNode = possible.remove(nextNodeAdress);
             AvailableBlocks.remove(nextNode);
+            if(!DNA.contains(nextNode.OutputEvents.get(0)))
+                {
+                try {
+                    System.out.println("Dialog: " + currentNode.getDialog());
+                    System.out.println("Input: " + currentNode.InputEvents);
+                    
+                    System.out.println("Output: " + currentNode.OutputEvents + "\n\n");
+                } catch (IOException ex) {
+                    Logger.getLogger(StorySystem.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                    StoryMap.addVertex(nextNode.getBlockID()); 
+                    DNA += nextNode.printOutput();
+                    StoryMap.addEdge(DNA, currentNode.getBlockID(), nextNode.getBlockID());
+                    currentNode = nextNode;
+                }
+            //StoryMap.addEdge(DNA, currentNode.getBlockID(), nextNode.getBlockID());
+           
             
-            StoryMap.addVertex(nextNode.getBlockID()); 
-            DNA += nextNode.printOutput();
-            StoryMap.addEdge(DNA, currentNode.getBlockID(), nextNode.getBlockID());
             
-            currentNode = nextNode;
+            
         }
-        StoryMap.addVertex(currentNode.getBlockID()); 
-        DNA += currentNode.printOutput();
+        if(!DNA.contains(currentNode.OutputEvents.get(0)))
+        {
+            StoryMap.addVertex(currentNode.getBlockID()); 
+            DNA += currentNode.printOutput();
+        }
+        
         
         
     }
@@ -133,7 +156,26 @@ public class StorySystem {
         //Grab next node
         for(StoryBlock block : AvailableBlocks)
         {
-            if(block.blockConnect(DNA))
+            int index = DNA.lastIndexOf("[(]*[)]");
+            if(index<0)
+                index = 0;
+            if(block.blockConnect(DNA.substring(index)))
+                possible.add(block);
+            if(possible.size() >= num_options-1)
+                break;
+        }
+        return possible;
+    }
+    public ArrayList<StoryBlock> grabNewPaths2(int num_options)
+    {
+        ArrayList<StoryBlock> possible = new ArrayList<>();
+        //Grab next node
+        for(StoryBlock block : AvailableBlocks)
+        {
+            int index = DNA.lastIndexOf("[(]*[)]");
+            if(index<0)
+                index = 0;
+            if(block.blockConnect(""))
                 possible.add(block);
             if(possible.size() >= num_options-1)
                 break;

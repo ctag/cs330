@@ -92,7 +92,7 @@ public class StateDB {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            String sql = "SELECT * FROM Maping_SS LIMIT " + Number + ";"; 
+            String sql = "SELECT * FROM Maping_SS;";// LIMIT " + Number + ";"; 
             ResultSet rs = stmt.executeQuery(sql);
             while ( rs.next() ) 
             {

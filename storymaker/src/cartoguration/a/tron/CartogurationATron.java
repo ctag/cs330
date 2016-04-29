@@ -33,7 +33,7 @@ public class CartogurationATron {
         //StateDB.instert_Element("AA", "I am a test", "I-am-not-real");
         //StateDB.instert_Modifier("Fame", ".5", "I-am-not-real", "This is a Desc");
         ArrayList<StoryBlock> list_of_blocks = new ArrayList<StoryBlock>();
-        for(int x=1; x<13;x++)
+        for(int x=1; x<32;x++)
         {
             StoryBlock temp = new StoryBlock("[" +x+"]");
             System.out.println(temp.printFunctionMaps());
