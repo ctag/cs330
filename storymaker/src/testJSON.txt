@@ -3,62 +3,74 @@
 	{
 		"tag" : "[1]",
 		"inputs": "",
-		"outputs": "(OW)"
+		"outputs": "(OW)",
+		"dialog": "You are raised on a farm, doing nothing but boring tasks all day."
 	},
 	{
 		"tag" : "[2]",
 		"inputs": "(OW)",
-		"outputs": "(CA)"
+		"outputs": "(CA)",
+		"dialog": "One day you find a pair of droids on a mission to find a great general. They ask you to help."
 	},
 	{
 		"tag" : "[3]",
 		"inputs": "(CA)",
-		"outputs": "(RC)"
+		"outputs": "(RC)",
+		"dialog": "Your family says not to worry about the message, after all you have course to take care of."
 	},
 	{
 		"tag" : "[4]",
 		"inputs": "(RC)",
-		"outputs": "(MM)"
+		"outputs": "(MM)",
+		"dialog": "The call to adventure it to great however, you decide to try the quest anyway. Along the way you find the General who decides to teach you his ways."
 	},
 	{
 		"tag" : "[5]",
 		"inputs": "(MM)",
-		"outputs": "(CT)"
+		"outputs": "(CT)",
+		"dialog": "Escort the trade caravan."
 	},
 	{
 		"tag" : "[6]",
 		"inputs": "(CT)",
-		"outputs": "(AP)"
+		"outputs": "(AP)",
+		"dialog": " Your mentor’s training helps a lot."
 	},
 	{
 		"tag" : "[7]",
-		"inputs": "(AP)",
-		"outputs": "(TO)"
+		"inputs": "",
+		"outputs": "(OW)",
+		"dialog": "You are raised on a farm, doing nothing but boring tasks all day."
 	},
 	{
 		"tag" : "[8]",
-		"inputs": "(TO)",
-		"outputs": "(TR)"
+		"inputs": "(OW)",
+		"outputs": "(CA)",
+		"dialog": "One day you find a pair of droids on a mission to find a great general. They ask you to help."
 	},
 	{
 		"tag" : "[9]",
-		"inputs": "(TR)",
-		"outputs": "(RB)"
+		"inputs": "(CA)",
+		"outputs": "(RC)",
+		"dialog": "Your family says not to worry about the message, after all you have course to take care of."
 	},
 	{
 		"tag" : "[10]",
-		"inputs": "(RB)",
-		"outputs": "(TRE)"
+		"inputs": "(RC)",
+		"outputs": "(MM)",
+		"dialog": "The call to adventure it to great however, you decide to try the quest anyway. Along the way you find the General who decides to teach you his ways."
 	},
 	{
 		"tag" : "[11]",
-		"inputs": "(TRE)",
-		"outputs": "(RWE)"
+		"inputs": "(MM)",
+		"outputs": "(CT)",
+		"dialog": "Escort the trade caravan."
 	},
 	{
 		"tag" : "[12]",
-		"inputs": "(TAE)",
-		"outputs": ""
+		"inputs": "(CT)",
+		"outputs": "(AP)",
+		"dialog": " Your mentor’s training helps a lot."
 	}
 	]
 }
