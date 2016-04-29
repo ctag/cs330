@@ -97,6 +97,18 @@ public class StoryBlock {
         // Add storyblock to list of blocks
         listOfBlocks.add(this);
     }
+    
+    public String getDialog() throws IOException{
+        JSONArray temp = new JSONObject(readFile("src/testJSON.txt",StandardCharsets.UTF_8)).getJSONArray("blocks");
+        for(int i = 0; i < temp.length(); i++)
+        {
+            if(temp.getJSONObject(i).getString("tag").equals(tagID))
+            {
+                return temp.getJSONObject(i).getString("dialog");
+            }
+        }
+        return "No valid block found.";
+    }
     public StoryBlock(String id) throws IOException {
         /*this.InputEvents = InputEvents;
         this.InputEventsModifiers = InputEventsModifiers;
